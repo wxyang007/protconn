@@ -10,7 +10,7 @@ The whole workflow for the computation of Protection Connectivity (hereinafter r
 
 Presently the GIS processing step uses a mix of arcypython (ESRI Arcgis license required) and bash/psql tools.
 
-**TBD**: removing the the arcpython component. The main constraint in removing this component is the 'dissolve' features step, not successfuly implementable (until now) in Postgis.
+**TBD**: removing the the arcpython component. The main constraint in removing this component is the 'dissolve' features step, not successfully implementable (until now) in Postgis.
 
 **ProtConn analysis** and **Post-processing** steps are entirely run in bash/psql environment. A [master script](conefor/exec_full_conefor_master.sh) calls in sequence all the subscripts required to perform both steps 2 and 3.
 
@@ -19,8 +19,8 @@ Conefor with command line interface is required. Here, [version 2.7.3](http://ww
 Input data used are for computation of ProtConn are:
 
   - WDPA (latest gdb file downloaded from [protectedplanet.net](https://www.protectedplanet.n))
-  - Global Administrative Unit Layers (GAUL), revision 2015 (2017-02-02).
-  - Terrestrial Ecoregions of the World (Olson et al., 2001)
+  - Global Administrative Unit Layers (GAUL), revision 2015 (2017-02-02). The layer must exists in the working gdb befor running scripts.
+  - Terrestrial Ecoregions of the World (Olson et al., 2001). The layer must exists in the working gdb befor running scripts
   
 
 ### 1. GIS processing
@@ -74,6 +74,13 @@ Overall processing time is approximately 25 hours (4 hours for steps 1-3, 21 hou
    - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for countries with bound correction (about four times slower than the same operation in arcpy. Its use is deprecated).
    
 **c) Ecoregion level**
-  
-  
 
+1. [c1ecoregion.py](gis_proc/arcpy/c1ecoregion.py)
+   - Select terrestrial ecoregions, dissolve WDPA, intersect it with ecoregions, select polygons over 1km2, add and compute required fields, export attributes
+   - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
+   
+4. [exec_generate_near_table_ecoregion.sh] (gis_proc/exec_generate_near_table_ecoregion.sh)
+   - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for ecoregions.
+   
+  
+  
