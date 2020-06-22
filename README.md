@@ -66,7 +66,13 @@ Overall processing time is approximately 25 hours (4 hours for steps 1-3, 21 hou
 
 **TBD**: replace processing of [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py) with its equivalent in postgis.
 
+3. [b2country_boundcorr.py](gis_proc/arcpy/b2country_boundcorr.py)
+   - Import shp, add and compute required fields, merge gaul and wdpa, repair geometries, export attributes
+   - Generate near table (much faster than the same operation in postgis, described below at point 4)
 
+4. [exec_generate_near_table_country_boundcorr.sh](gis_proc/exec_generate_near_table_country_boundcorr.sh)
+   - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for countries with bound correction (about four times slower than the same peration in arcpy. Its use is deprecated)
+   
 **c) Ecoregion level**
   
   
