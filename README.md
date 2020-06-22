@@ -61,7 +61,7 @@ Overall processing time is approximately 25 hours (4 hours for steps 1-3, 21 hou
    - Convert GAUL to single part, repair geometries, compute area_geo
    
 2. [exec_simplify_gaul_bound_correction.sh](gis_proc/exec_simplify_gaul_bound_correction.sh)
-   - Import gaul single part from gdb in Postgis, simplify polygons, export to shp
+   - Import gaul single part with area_geo>=1km2 from gdb in Postgis, simplify polygons, export to shp
    
 
 **TBD**: replace processing of [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py) with its equivalent in postgis.

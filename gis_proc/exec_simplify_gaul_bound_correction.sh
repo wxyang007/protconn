@@ -16,11 +16,12 @@ ogr2ogr \
 -progress \
 -overwrite \
 -skipfailures \
+-sql "SELECT * FROM ${gaul_for_bound_corr} WHERE area_geo>=1" \
 -f "PostgreSQL"  \
 PG:"host=${host} user=${user} dbname=${db} active_schema=${protconn_schema} password=${pw}" \
 -nln "${protconn_schema}.${gaul_for_bound_corr}" \
 -nlt "MULTIPOLYGON" \
-${DATADIR}/${gdb_name} ${gaul_for_bound_corr}
+${DATADIR}/${gdb_name}
 
 wait
 echo "GDB feature class imported in PG as table ${protconn_schema}.${gaul_for_bound_corr}"
