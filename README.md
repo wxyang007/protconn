@@ -22,6 +22,8 @@ Input data used are for computation of ProtConn are:
   - Global Administrative Unit Layers (GAUL), revision 2015 (2017-02-02). The layer must exists in the working gdb befor running scripts.
   - Terrestrial Ecoregions of the World (Olson et al., 2001). The layer must exists in the working gdb befor running scripts
   
+**TBD**: 1. Prepare a script for  - GDB creation and 
+                                  - copy of required layers (gaul and ecoregions) from DB
 
 ### 1. GIS processing
 
