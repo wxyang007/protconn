@@ -81,7 +81,7 @@ c.1. [c1ecoregion.py](gis_proc/arcpy/c1ecoregion.py)
    - Select terrestrial ecoregions, dissolve WDPA, intersect it with ecoregions, select polygons over 1km2, add and compute required fields, export attributes
    - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
    
-c.2. [exec_generate_near_table_ecoregion.sh] (gis_proc/exec_generate_near_table_ecoregion.sh)
+c.2. [exec_generate_near_table_ecoregion.sh](gis_proc/exec_generate_near_table_ecoregion.sh)
    - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for ecoregions.
    
   
