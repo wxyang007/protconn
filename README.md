@@ -12,7 +12,7 @@ The whole workflow for the computation of Protection Connectivity (hereinafter r
   - post-processing of outputs from Conefor.
 
 Presently the GIS processing step uses a mix of arcypython (ESRI Arcgis license required) and bash/psql tools.
-The ProtConn analysis step is based on bash, R and psql scripts. Conefor with command line interface is required. Here, [version 2.7.3](http://www.conefor.org/files/usuarios/Conefor_command_line.zip) is used.
+The ProtConn analysis step is based on bash, R and psql scripts. **Conefor with command line interface** is required. Here, [version 2.7.3](http://www.conefor.org/files/usuarios/Conefor_command_line.zip) is used.
 A [master script](conefor/exec_full_conefor_master.sh) calls in sequence all the subscripts required to perform the whole step.
 
 **TBD**: removing the the arcpython component from step 1. The main constraint in removing this component is the 'dissolve' features step, not successfully implementable (until now) in Postgis.
