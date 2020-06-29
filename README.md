@@ -40,17 +40,17 @@ The variables for arcpython scripts are declared at the beginning of each script
 
 **a) Country level**
 
-1. [a1country.py](gis_proc/arcpy/a1country.py)
+a.1. [a1country.py](gis_proc/arcpy/a1country.py)
    - Import polygons and points, bufferize points, merge poly and points.
   
-2. [exec_simplify_wdpa_all_relevant.sh](gis_proc/exec_simplify_wdpa_all_relevant.sh)
+a.2. [exec_simplify_wdpa_all_relevant.sh](gis_proc/exec_simplify_wdpa_all_relevant.sh)
    - Import wdpa from dgb in Postgis, simplify polygons, export to shp.
   
-3. [a2country.py](gis_proc/arcpy/a2country.py)
+a.3. [a2country.py](gis_proc/arcpy/a2country.py)
    - Import shp, process multi iso3 polygons, prepare wdpa flat final, ready for calculation of distances in PostGis (ST_distance)
    - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
   
-4. [exec_generate_near_table_country.sh](gis_proc/exec_generate_near_table_country.sh)
+a.4. [exec_generate_near_table_country.sh](gis_proc/exec_generate_near_table_country.sh)
    - Import wdpa from gdb, repair geometries and compute Near Table in Postgis for countries.
 
 Overall processing time is approximately 25 hours (4 hours for steps 1-3, 21 hours for step 4)
@@ -59,29 +59,29 @@ Overall processing time is approximately 25 hours (4 hours for steps 1-3, 21 hou
 
 **b) Country level with bound correction**
 
-1. [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py)
+b.1. [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py)
    - Convert GAUL to single part, repair geometries, compute area_geo.
    
-2. [exec_simplify_gaul_bound_correction.sh](gis_proc/exec_simplify_gaul_bound_correction.sh)
+b.2. [exec_simplify_gaul_bound_correction.sh](gis_proc/exec_simplify_gaul_bound_correction.sh)
    - Import gaul single part with area_geo>=1km2 from gdb in Postgis, simplify polygons, export to shp.
    
 
 **TBD**: replace processing of [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py) with its equivalent in postgis.
 
-3. [b2country_boundcorr.py](gis_proc/arcpy/b2country_boundcorr.py)
+b.3. [b2country_boundcorr.py](gis_proc/arcpy/b2country_boundcorr.py)
    - Import shp, add and compute required fields, merge gaul and wdpa, repair geometries, export attributes
    - Generate near table (much faster than the same operation in postgis, described below at point 4).
 
-4. [exec_generate_near_table_country_boundcorr.sh](gis_proc/exec_generate_near_table_country_boundcorr.sh)
+b.4. [exec_generate_near_table_country_boundcorr.sh](gis_proc/exec_generate_near_table_country_boundcorr.sh)
    - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for countries with bound correction (about four times slower than the same operation in arcpy. Its use is deprecated).
    
 **c) Ecoregion level**
 
-1. [c1ecoregion.py](gis_proc/arcpy/c1ecoregion.py)
+c.1. [c1ecoregion.py](gis_proc/arcpy/c1ecoregion.py)
    - Select terrestrial ecoregions, dissolve WDPA, intersect it with ecoregions, select polygons over 1km2, add and compute required fields, export attributes
    - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
    
-4. [exec_generate_near_table_ecoregion.sh] (gis_proc/exec_generate_near_table_ecoregion.sh)
+c.2. [exec_generate_near_table_ecoregion.sh] (gis_proc/exec_generate_near_table_ecoregion.sh)
    - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for ecoregions.
    
   
