@@ -50,7 +50,7 @@ a.2. [exec_simplify_wdpa_all_relevant.sh](gis_proc/exec_simplify_wdpa_all_releva
    - Import wdpa from gdb in Postgis, simplify polygons, export to shp.
   
 a.3. [a2country.py](gis_proc/arcpy/a2country.py)
-   - Import table from postgis DB (**prompts for password at launch**), process multi iso3 polygons, prepare wdpa flat final, ready for calculation of distances in PostGis (ST_distance)
+   - Import shp, process multi iso3 polygons, prepare wdpa flat final, ready for calculation of distances in PostGis (ST_distance)
    - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
   
 a.4. [exec_generate_near_table_country.sh](gis_proc/exec_generate_near_table_country.sh)
