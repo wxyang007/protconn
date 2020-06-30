@@ -38,6 +38,7 @@ The variables for arcpython scripts are declared at the beginning of each script
 
 **TBD**: prepare an external file with variables and import in python at start.
 
+A full run of all the GIS processing scriptsdescribed below takes approximately 3 days in total.
 
 
 **a) Country level**
@@ -46,10 +47,10 @@ a.1. [a1country.py](gis_proc/arcpy/a1country.py)
    - Import polygons and points, bufferize points, merge poly and points.
   
 a.2. [exec_simplify_wdpa_all_relevant.sh](gis_proc/exec_simplify_wdpa_all_relevant.sh)
-   - Import wdpa from dgb in Postgis, simplify polygons, export to shp.
+   - Import wdpa from gdb in Postgis, simplify polygons, export to shp.
   
 a.3. [a2country.py](gis_proc/arcpy/a2country.py)
-   - Import shp, process multi iso3 polygons, prepare wdpa flat final, ready for calculation of distances in PostGis (ST_distance)
+   - Import table from postgis DB (**prompts for password at launch**), process multi iso3 polygons, prepare wdpa flat final, ready for calculation of distances in PostGis (ST_distance)
    - Generate near table (much slower than the same operation in postgis, presently is commented and not executed).
   
 a.4. [exec_generate_near_table_country.sh](gis_proc/exec_generate_near_table_country.sh)
@@ -71,7 +72,7 @@ b.2. [exec_simplify_gaul_bound_correction.sh](gis_proc/exec_simplify_gaul_bound_
 **TBD**: replace processing of [b1country_boundcorr.py](gis_proc/arcpy/b1country_boundcorr.py) with its equivalent in postgis.
 
 b.3. [b2country_boundcorr.py](gis_proc/arcpy/b2country_boundcorr.py)
-   - Import shp, add and compute required fields, merge gaul and wdpa, repair geometries, export attributes
+   - Import table from postgis DB (**prompts for password at launch**), add and compute required fields, merge gaul and wdpa, repair geometries, export attributes
    - Generate near table (much faster than the same operation in postgis, described below at point 4).
 
 b.4. [exec_generate_near_table_country_boundcorr.sh](gis_proc/exec_generate_near_table_country_boundcorr.sh)
@@ -87,6 +88,10 @@ c.2. [exec_generate_near_table_ecoregion.sh](gis_proc/exec_generate_near_table_e
    - Import relevant layer from gdb, repair geometries and compute Near Table in Postgis for ecoregions.
    
   
-  
+
+**Recommendations and tips**
+   - when moving a layer from/to the FIle GDB to/from Postgis it's always worth **to check the number of objects** in input and output. 
+   - 
+
 ### 2. ProtConn analysis in Conefor
 
