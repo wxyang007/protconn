@@ -35,7 +35,9 @@ Output: PA_final —> node + distance file
 ⬆️ Use result of step 5 to create inputs for near analysis & conefor analysis.
 
 2. An example
+
 E.g., county level analysis
+
 Step 1: skip
 Step 2: skip
 *Step 3*: Customize how you would like to preprocess the region file. In the case of county level analysis, just buffer.
