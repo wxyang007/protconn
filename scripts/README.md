@@ -4,12 +4,9 @@
 
 ### 1. Explanation of the script
 
-Step 1 merge PA files
-
-  Input: pa files
-
-  Output: PA_all (PA_mexcan_us)
-
+1. Step 1 merge PA files \
+Input: pa files \
+Output: PA_all (PA_mexcan_us)
 ⬆️　This only needs to be done once.
 
 
