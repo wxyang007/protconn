@@ -21,7 +21,7 @@ Output: **region_final** + land file \
 
 - Step 4 merge with land layer and set areas of land layer to 0 (the step for boundary correction) \
 Input: land file + PA_input_proj \
-Output: PA_land \
+Output: PA_land (PA_mexcanus_land_0713) \
 ⬆️　This only needs to be done once.
 
 
