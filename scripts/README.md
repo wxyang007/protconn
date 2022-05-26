@@ -54,3 +54,10 @@ Step 4: skip
 **Step 6**: no need to edit code.
 
 Only bolded steps need to be run.
+
+## 1-4 Analysis_Prepare_Region_PA.ipynb
+### 1. Explanation of the script
+What you need:
+1. Result PA from the script 1-3
+2. An excel file outlining the abbreviations of the regions.
+3. To edit the script.
