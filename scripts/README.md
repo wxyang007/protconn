@@ -1,7 +1,7 @@
 # How to use the scripts
 
 Note:
-We used arcpy and conefor command line to compute metric values for CONUS, states, and DOIs. To speed up, we used a very helpful R package Makurhini(https://connectscape.github.io/Makurhini/) to compute county level values, which also has a much simpler workflow. Below is a general workflow to follow to use arcpy and conefor command line to compute ProtConn.
+We used arcpy and conefor command line to compute metric values for CONUS, states, and DOIs. To speed up, we used a very helpful R package [Makurhini](https://connectscape.github.io/Makurhini/) to compute county level values, which also has a much simpler workflow. Below is a general workflow to follow to use arcpy and conefor command line to compute ProtConn.
 
 ## 1-3 Preprocessing.ipynb
 ### 1. Steps of the script
